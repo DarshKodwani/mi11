@@ -1,8 +1,0 @@
-streamlit
-openai
-transformers
-torch
-python-dotenv
-flask
-flask-cors
-requests
