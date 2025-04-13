@@ -476,7 +476,7 @@ body {
   }
 }
 
-/* Moved the mute button to the bottom right corner of the page */
+/* Ensure the mute button is always on top and clickable */
 .mute-button {
   position: fixed;
   bottom: 20px;
@@ -490,6 +490,7 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
+  z-index: 10000; /* Ensure the button is above all other elements */
 }
 
 .mute-button:hover {
