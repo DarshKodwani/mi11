@@ -1,0 +1,508 @@
+/* Fixed layout to ensure all pages cover the full screen */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: visible; /* Changed from hidden to visible */
+  height: 100vh;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  z-index: 1;
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+}
+
+.App video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Changed the font color of the welcome page back to white */
+.cover-page {
+  position: relative;
+  color: white; /* White font color */
+  text-align: center;
+  padding: 100px 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cover-page h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Adjusted spacing to ensure the joke is visible below the message */
+.cover-page p {
+  font-size: 1.5rem;
+  margin-top: 10px; /* Added spacing above the joke */
+  margin-bottom: 20px;
+}
+
+.cover-page button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Adjusted the agent image to be larger and circular */
+.agent-image {
+  width: 200px; /* Increased size */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Added styles for thought bubbles above agent images */
+.agent-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  overflow: visible;
+}
+
+/* Adjusted the other agents' picture and thought bubble to be 75% up the page and centered */
+.agent-image-container:not(.welcome-page) {
+  position: absolute;
+  top: 25%; /* 75% up the page */
+  left: 50%;
+  transform: translate(-50%, -25%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Moved the thought bubble further up and slightly adjusted left alignment */
+.thought-bubble {
+  position: absolute;
+  top: 35%; /* Further up */
+  left: calc(100% - 60px); /* Slightly more to the left */
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8); /* Darker background */
+  color: white; /* White text for better contrast */
+  padding: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thought-bubble:not(.welcome-page) {
+  position: relative;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.thought-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px; /* Positioned to point towards the image */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Added specific styles for each agent's thought bubble */
+.thought-bubble-m {
+  position: absolute;
+  top: 10%; /* Adjusted for M */
+  right: -5%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8); /* Darker background */
+  color: white; /* White text for better contrast */
+  padding: 20px;
+  width: 150px;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thought-bubble-moneypenny {
+  position: absolute;
+  top: 10%; /* Adjusted for Moneypenny */
+  left: calc(100% - 170px);
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8); /* Darker background */
+  color: white; /* White text for better contrast */
+  padding: 20px;
+  width: 150px;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thought-bubble-q {
+  position: absolute;
+  top: 10%; /* Adjusted for Q */
+  left: calc(100% - 170px);
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8); /* Darker background */
+  color: white; /* White text for better contrast */
+  padding: 20px;
+  width: 150px;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thought-bubble-bond {
+  position: absolute;
+  top: 45%; /* Adjusted for Bond */
+  left: calc(100% - 40px);
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8); /* Darker background */
+  color: white; /* White text for better contrast */
+  padding: 20px;
+  width: 150px;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-header {
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png');
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: particle-float 5s linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px) translateX(20px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100px) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+/* Generate multiple particles dynamically */
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.particle:nth-child(2) {
+  top: 40%;
+  left: 30%;
+  animation-delay: 1s;
+}
+.particle:nth-child(3) {
+  top: 60%;
+  left: 50%;
+  animation-delay: 2s;
+}
+.particle:nth-child(4) {
+  top: 80%;
+  left: 70%;
+  animation-delay: 3s;
+}
+.particle:nth-child(5) {
+  top: 50%;
+  left: 90%;
+  animation-delay: 4s;
+}
+
+/* Removed the sidebar and added a transparent workflow tracker at the top */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Adjusted the workflow tracker to align vertically on the left side */
+.workflow-pane {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.workflow-section {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.workflow-section.active {
+  background: #4CAF50;
+}
+
+.workflow-section:hover {
+  background: #45a049;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Doubled the size of the pane to ensure ample space for the thought bubble */
+.input-section {
+  text-align: center;
+  max-width: 1800px; /* Doubled the width */
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 80px; /* Doubled the padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-section .primary-button {
+  margin-bottom: 20px;
+}
+
+.hypotheses-section,
+.data-requirements-section,
+.analysis-plan-section,
+.generated-code-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hypotheses-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.hypotheses-section li {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #333; /* Darker background */
+  color: white; /* White text */
+  transition: background-color 0.3s;
+}
+
+.hypotheses-section li:hover {
+  background-color: #555; /* Slightly lighter hover effect */
+}
+
+.hypotheses-section li.selected {
+  background-color: #007bff; /* Blue for selection */
+  color: white; /* White text */
+}
+
+.primary-button {
+  background-color: #4CAF50; /* Green button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.primary-button:hover {
+  background-color: #45a049;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+  }
+  100% {
+    text-shadow: 0 0 10px #45a049, 0 0 20px #45a049, 0 0 40px #45a049, 0 0 50px #45a049;
+  }
+}
+
+/* Moved the mute button to the bottom right corner of the page */
+.mute-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.mute-button:hover {
+  background-color: #45a049;
+}
+
+.problem-summary {
+  color: black !important; /* Ensure text color is black */
+  background-color: white !important; /* Ensure background color is white */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+  width: 300px;
+  margin: 20px auto;
+}
