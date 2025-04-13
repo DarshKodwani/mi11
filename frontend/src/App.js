@@ -53,7 +53,7 @@ function App() {
 
   useEffect(() => {
     // Create the audio element directly in the DOM
-    const audioElement = new Audio('/James%20Bond%20(Original).mp3');
+    const audioElement = new Audio('/audio/James%20Bond%20(Original).mp3');
     audioElement.loop = true;
     audioRef.current = audioElement; // Store in ref for persistence
 
@@ -140,10 +140,10 @@ function App() {
   const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
 
   const agents = [
-    { name: 'Moneypenny', image: '/moneypenny.png', thought: 'Let’s start by analyzing the document. Every great mission starts with understanding the problem!' },
-    { name: 'Q', image: '/Q_.png', thought: 'Ah, the tools and data! The right data is like the right gadget—it makes all the difference!' },
-    { name: 'Bond', image: '/007.png', thought: 'Time to roll up our sleeves and get to work. Let’s make it happen!' },
-    { name: 'Bond', image: '/007.png', thought: 'Mission accomplished! Let’s review the results and celebrate success!' }
+    { name: 'Moneypenny', image: '/images/moneypenny.png', thought: 'Let’s start by analyzing the document. Every great mission starts with understanding the problem!' },
+    { name: 'Q', image: '/images/Q_.png', thought: 'Ah, the tools and data! The right data is like the right gadget—it makes all the difference!' },
+    { name: 'Bond', image: '/images/007.png', thought: 'Time to roll up our sleeves and get to work. Let’s make it happen!' },
+    { name: 'Bond', image: '/images/007.png', thought: 'Mission accomplished! Let’s review the results and celebrate success!' }
   ];
 
   const handleFileUpload = (e) => {
@@ -245,7 +245,7 @@ function App() {
   return (
     <div className="App">
       <video autoPlay loop muted>
-        <source src="/electronic-circuit-board.1920x1080.mp4" type="video/mp4" />
+        <source src="/videos/electronic-circuit-board.1920x1080.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <button 
@@ -271,7 +271,7 @@ function App() {
       {showCoverPage ? (
         <div className="cover-page">
           <div className="agent-image-container">
-            <img src="/M_.png" alt="M" className="agent-image" />
+            <img src="/images/M_.png" alt="M" className="agent-image" />
             <div className="thought-bubble-m">Welcome, Agent. Your mission is to uncover insights from the data. Proceed with caution.</div>
           </div>
           <h1>Welcome to Mi 11</h1>
@@ -282,7 +282,7 @@ function App() {
         <div className="workflow-page">
           {workflowStep === 1 && (
             <div className="agent-image-container-moneypenny" style={{ position: 'relative', height: '100vh' }}>
-              <img src="/moneypenny.png" alt="Moneypenny" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
+              <img src="/images/moneypenny.png" alt="Moneypenny" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
               <div className="thought-bubble-moneypenny" style={{ position: 'absolute', top: '20%', left: 'calc(50% + 3cm)' }}>Let’s start by analyzing the document. Every great mission starts with understanding the problem!</div>
               <div style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
                 <button className="primary-button" onClick={() => setInputMode('type')}>Type Information</button>
@@ -359,19 +359,19 @@ function App() {
           )}
           {workflowStep === 2 && (
             <div className="agent-image-container-q" style={{ position: 'relative', height: '100vh' }}>
-              <img src="/Q_.png" alt="Q" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
+              <img src="/images/Q_.png" alt="Q" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
               <div className="thought-bubble-q" style={{ position: 'absolute', top: '20%', left: 'calc(50% + 2cm)' }}>Ah, the tools and data! The right data is like the right gadget—it makes all the difference!</div>
             </div>
           )}
           {workflowStep === 3 && (
             <div className="agent-image-container-bond" style={{ position: 'relative', height: '100vh' }}>
-              <img src="/007.png" alt="Bond" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
+              <img src="/images/007.png" alt="Bond" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
               <div className="thought-bubble-bond" style={{ position: 'absolute', top: '20%', left: 'calc(50% + 2cm)' }}>Time to roll up our sleeves and get to work. Let’s make it happen!</div>
             </div>
           )}
           {workflowStep === 4 && (
             <div className="agent-image-container-bond" style={{ position: 'relative', height: '100vh' }}>
-              <img src="/007.png" alt="Bond" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
+              <img src="/images/007.png" alt="Bond" className="agent-image" style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }} />
               <div className="thought-bubble-bond" style={{ position: 'absolute', top: '20%', left: 'calc(50% + 2cm)' }}>Mission accomplished! Let’s review the results and celebrate success!</div>
             </div>
           )}
