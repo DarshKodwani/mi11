@@ -1,4 +1,4 @@
-# Playing Agents
+# MI 11 Agents
 
 An interactive chat interface with themed agents (Moneypenny, Q, and Bond) for data science problem analysis and code generation.
 
